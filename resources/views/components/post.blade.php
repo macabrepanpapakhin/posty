@@ -1,8 +1,13 @@
 @props(['post'=>$post])
 <div class="mb-4">
-      <a href="{{ route('users.posts',$post->user) }}" class="font-bold">{{$post->user->name}}</a>
+<a href="{{ route('profile',$post->user) }}">
+  
+  <img class="w-12 h-12 rounded-full inline-block mr-6" src="{{$post->user->profile?asset('/storage/'.$post->user->profile):asset('/images/noimage.png')}}"  alt="user image"/>
+      <!-- <a href="{{ route('users.posts',$post->user) }}" class="font-bold mb-6 mr-6">{{$post->user->name}}</a> -->
+</a>
+      <a href="{{ route('profile',$post->user) }}" class="font-bold mb-6 mr-6">{{$post->user->name}}</a>
       <span class="text-gray-600 text-sm">{{$post->created_at->diffForHumans()}}</span>
-      <p class="mb-2">{{$post->body}}</p>
+      <p class="mb-2 p-6 pl-0  leading-8">{{$post->body}}</p>
       <div>
       
       </div>

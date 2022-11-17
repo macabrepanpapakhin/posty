@@ -5,7 +5,7 @@
 
 <div class="flex justify-center">
   <div class="w-4/12 bg-white p-6 mt-5 rounded-lg">
-   <form action="{{route('register')}}" method="post">
+   <form action="{{route('register')}}" method="post" enctype="multipart/form-data">
     @csrf
   <div class="mb-4">
     <label for="name" class="sr-only">Name</label>
@@ -18,8 +18,8 @@
   </div>
   <div class="mb-4">
     <label for="username" class="sr-only">User Name</label>
-    <input type="text" name="username" id="username" placeholder="User Name" class="bg-gray-100 border-2 w-full p-4 rounded-lg  @error('username') border-red-500  @enderror" value="{{old('username')}}">
-    @error('username')
+    <input type="text" name="user_name" id="user_name" placeholder="User Name" class="bg-gray-100 border-2 w-full p-4 rounded-lg  @error('username') border-red-500  @enderror" value="{{old('user_name')}}">
+    @error('user_name')
   <div class="text-red-500 mt-2 text-sm">{{$message}}</div>
   
   @enderror
@@ -47,6 +47,17 @@
   <div class="text-red-500 mt-2 text-sm">{{$message}}</div>
   
   @enderror
+                        <div class="mb-6">
+                            <label for="profile" class="inline-block text-lg mb-2 mt-2">
+                               Profile Image
+                            </label>
+                            <input
+                                type="file"
+                                class="border border-gray-200 rounded p-2 w-full"
+                                name="profile"
+                                id="profile"
+                            />
+                        </div>
   </div>
   <div>
     <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Register</button>

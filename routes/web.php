@@ -7,6 +7,7 @@ use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -21,6 +22,12 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 Route::get('/posts',[PostController::class,'index'])->name('posts');
+
+Route::get('/{user}/removeprofile',[ProfileController::class,'removeprofile'])->name('removeprofile');
+
+Route::post('/{id}/update',[ProfileController::class,'updateprofile']);
+
+Route::get('/{user:user_name}/profile',[ProfileController::class,'index'])->name('profile');
 
 Route::get('/posts/{post}',[PostController::class,'show'])->name('posts.show');
 
